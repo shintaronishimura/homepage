@@ -1,46 +1,58 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import "./styles/Top.css";
+import { HeaderMenuItem } from "./Component/MenuItem/HeaderItem";
+import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./Routes";
 
 function TopPage() {
+  const corporateMenuItems = ["会社概要", "沿革"];
+  const serviceMenuItems = ["コンサルティング", "開発"];
+  const corporateMenuLinks = [
+    "/corporate-info/overview",
+    "/corporate-info/history",
+  ];
+  const serviceMenuLinks = ["/services/consulting", "/services/development"];
+  const corporateButtonLink = "/corporate-info";
+  const serviceButtonLink = "/services";
+  const contactButtonLink = "/contact";
+  const accessButtonLink = "/access";
+  const recruitmentButtonLink = "/recruitment";
   return (
     <Router>
       <div>
         <header>
           <nav>
             <ul className="navbar">
-              <li className="nav-item">
-                <Link to="/corporate-info">企業情報</Link>
-                <ul className="submenu">
-                  <li>
-                    <Link to="/corporate-info/overview">会社概要</Link>
-                  </li>
-                  <li>
-                    <Link to="/corporate-info/history">沿革</Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <Link to="/services">サービス</Link>
-                <ul className="submenu">
-                  <li>
-                    <Link to="/services/consulting">コンサルティング</Link>
-                  </li>
-                  <li>
-                    <Link to="/services/development">開発</Link>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <Link to="/contact">お問い合わせ</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/access">アクセス</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/recruitment">採用</Link>
-              </li>
+              <HeaderMenuItem
+                buttonName={"企業情報"}
+                items={corporateMenuItems}
+                links={corporateMenuLinks}
+                buttonNameLink={corporateButtonLink}
+              />
+              <HeaderMenuItem
+                buttonName={"サービス"}
+                items={serviceMenuItems}
+                links={serviceMenuLinks}
+                buttonNameLink={serviceButtonLink}
+              />
+              <HeaderMenuItem
+                buttonName={"お問い合わせ"}
+                items=""
+                links=""
+                buttonNameLink={contactButtonLink}
+              />
+              <HeaderMenuItem
+                buttonName={"アクセス"}
+                items=""
+                links=""
+                buttonNameLink={accessButtonLink}
+              />
+              <HeaderMenuItem
+                buttonName={"採用"}
+                items=""
+                links=""
+                buttonNameLink={recruitmentButtonLink}
+              />
             </ul>
           </nav>
         </header>

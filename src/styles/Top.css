@@ -1,37 +1,51 @@
+/* ナビゲーションバーのスタイル */
 .navbar {
   display: flex;
   list-style-type: none;
-  background-color: #333;
+  background-color: #000; /* 艶のある黒色の背景 */
   padding: 0;
   margin: 0;
-}
-.nav-item {
-  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7); /* 背景の艶を表現するためのシャドウ */
 }
 
-.nav-item a {
+/* ナビゲーションアイテムのスタイル */
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 15px; /* アイテム同士の間隔 */
+}
+
+/* リンクのスタイル */
+.nav-link {
   display: block;
   color: white;
   text-align: left;
   padding: 14px 20px;
   text-decoration: none;
+  position: relative; /* 下向き矢印を相対的に配置するため */
 }
 
-.nav-item a:hover {
+/* リンクのホバー時のスタイル */
+.nav-link:hover {
   background-color: #575757;
 }
 
+/* サブメニューのスタイル */
 .submenu {
   display: none;
   position: absolute;
+  top: 100%; /* 親メニューアイテムの下に表示 */
+  left: 0;
   background-color: #333;
   list-style-type: none;
   padding: 0;
   margin: 0;
   min-width: 160px;
-  z-index: 1;
+  z-index: 1000;
 }
 
+/* サブメニューアイテムのスタイル */
 .submenu li {
   width: 100%;
 }
@@ -39,12 +53,61 @@
 .submenu li a {
   padding: 12px 16px;
   color: white;
+  display: block;
+  text-decoration: none; /* 下線を削除する */
 }
 
+/* サブメニューアイテムのホバー時のスタイル */
 .submenu li a:hover {
   background-color: #575757;
+  text-decoration: none; /* ホバー時も下線を削除する */
 }
 
+/* サブメニューを表示するためのスタイル */
 .nav-item:hover .submenu {
   display: block;
+}
+
+/* サブメニューがある場合にのみ矢印を表示 */
+.nav-item.has-submenu > .nav-link::after {
+  content: "\f078"; /* FontAwesome 5 の下向き矢印アイコン */
+  font-family: "Font Awesome 5 Free"; /* FontAwesomeのフォントファミリー */
+  font-weight: 900; /* アイコンの太さ */
+  margin-left: 8px; /* アイコンとテキストの間のスペース */
+  display: inline-block;
+  font-size: 16px; /* アイコンのサイズ */
+  vertical-align: middle; /* アイコンとテキストの垂直方向の位置を合わせる */
+  transition: transform 0.3s; /* ホバー時のアニメーション */
+}
+
+/* サブメニューを表示している場合の矢印の回転 */
+.nav-item.has-submenu:hover > .nav-link::after {
+  transform: rotate(180deg); /* 矢印を回転させる */
+}
+
+/* サブメニューがないアイテムの矢印を非表示 */
+.nav-item:not(.has-submenu) > .nav-link::after {
+  content: ""; /* 矢印を非表示にする */
+}
+
+.corporateName {
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* アイコンのスタイル */
+.icon {
+  width: 35px;
+  height: 35px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+.corporate-name-container {
+  display: flex; /* 子要素を横並びにする */
+  align-items: center; /* 縦方向に中央揃え */
+  cursor: pointer; /* カーソルをポインタにする */
 }

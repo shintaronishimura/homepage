@@ -1,14 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import CorporateInfo from "./pages/CorporateInfo";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
-import Access from "./pages/Access";
-import Recruitment from "./pages/Recruitment";
-import Consulting from "./pages/Consulting";
-import Development from "./pages/Development";
-import CorporateExplain from "./pages/CorporateExplain";
-import CorporateHistory from "./pages/CorporateHistory";
+import CorporateInfo from "./Component/pages/CorporateInfo";
+import Services from "./Component/pages/Services";
+import Contact from "./Component/pages/Contact";
+import Access from "./Component/pages/Access";
+import Recruitment from "./Component/pages/Recruitment";
+import Consulting from "./Component/pages/Consulting";
+import Development from "./Component/pages/Development";
+import CorporateExplain from "./Component/pages/CorporateExplain";
+import CorporateHistory from "./Component/pages/CorporateHistory";
 
 function AppRoutes() {
   return (

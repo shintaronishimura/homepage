@@ -3,6 +3,7 @@ import "./styles/Top.css";
 import { HeaderMenuItem } from "./Component/MenuItem/HeaderItem";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./Routes";
+import { CorporateName } from "./Component/MenuItem/CorporateName";
 
 function TopPage() {
   const corporateMenuItems = ["会社概要", "沿革"];
@@ -23,11 +24,13 @@ function TopPage() {
         <header>
           <nav>
             <ul className="navbar">
+              <CorporateName />
               <HeaderMenuItem
                 buttonName={"企業情報"}
                 items={corporateMenuItems}
                 links={corporateMenuLinks}
                 buttonNameLink={corporateButtonLink}
+                has-submenu={true}
               />
               <HeaderMenuItem
                 buttonName={"サービス"}
